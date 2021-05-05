@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../projetos/dtmoney/.idea/dtmoney.iml" filepath="$PROJECT_DIR$/../../projetos/dtmoney/.idea/dtmoney.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/go-restaurant.iml" filepath="$PROJECT_DIR$/.idea/go-restaurant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../my-app/.idea/my-app.iml" filepath="$PROJECT_DIR$/../my-app/.idea/my-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shopping-cart/.idea/shopping-cart.iml" filepath="$PROJECT_DIR$/../shopping-cart/.idea/shopping-cart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../task-to-make/.idea/task-to-make.iml" filepath="$PROJECT_DIR$/../task-to-make/.idea/task-to-make.iml" />
+    </modules>
+  </component>
+</project>

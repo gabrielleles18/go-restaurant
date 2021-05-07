@@ -4,11 +4,27 @@ import {FiEdit3, FiTrash} from 'react-icons/fi';
 import {Container} from './styles';
 import api from '../../services/api';
 
+interface FoodProps {
+    food: {
+        available: boolean;
+        description: string;
+        id: number;
+        image: string;
+        name: string;
+        price: string
+    }
+}
 
-export function Food({food, handleDelete, handleEditFood}) {
+interface FuncProps{
+    handleDelete: (id: number) => void;
+    handleEditFood: (food: FoodProps) => void
+}
+
+
+export function Food({food}: FoodProps,  {handleDelete, handleEditFood}: FuncProps ) {
     const [isAvailable, setIsAvailable] = useState(true);
-    const [foods, setFood] = useState([]);
-
+    // const [food, setFood] = useState([]);
+    console.log(food);
     useEffect(() => {
         setIsAvailable(food.available)
     }, [])
@@ -39,7 +55,7 @@ export function Food({food, handleDelete, handleEditFood}) {
     function setEditingFood() {
         // const {food, handleEditFood} = this.props;
 
-        handleEditFood(food);
+        // handleEditFood(food);
     }
 
     // render()
@@ -48,7 +64,8 @@ export function Food({food, handleDelete, handleEditFood}) {
     // const {food, handleDelete} = this.props;
 
     return (
-        <Container available={isAvailable}>
+        <Container>
+        {/*<Container available={isAvailable}>*/}
             <header>
                 <img src={food.image} alt={food.name}/>
             </header>
@@ -64,7 +81,7 @@ export function Food({food, handleDelete, handleEditFood}) {
                     <button
                         type="button"
                         className="icon"
-                        // onClick={setEditingFood()}
+                        // onClick={() => handleEditFood(food)}
                         data-testid={`edit-food-${food.id}`}
                     >
                         <FiEdit3 size={20}/>
@@ -88,7 +105,7 @@ export function Food({food, handleDelete, handleEditFood}) {
                             id={`available-switch-${food.id}`}
                             type="checkbox"
                             checked={isAvailable}
-                            onChange={toggleAvailable()}
+                            onChange={toggleAvailable}
                             data-testid={`change-status-food-${food.id}`}
                         />
                         <span className="slider"/>

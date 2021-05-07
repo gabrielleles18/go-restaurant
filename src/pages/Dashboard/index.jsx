@@ -86,7 +86,7 @@ class Dashboard extends Component {
 
   render() {
     const { modalOpen, editModalOpen, editingFood, foods } = this.state;
-
+    console.log(foods);
     return (
       <>
         <Header openModal={this.toggleModal} />

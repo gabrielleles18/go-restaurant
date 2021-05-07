@@ -54,10 +54,7 @@
     "@types/react-icons": "^3.0.0",
     "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.7",
-    "@typescript-eslint/eslint-plugin": "^4.22.1",
-    "@typescript-eslint/parser": "^4.22.1",
     "axios-mock-adapter": "^1.19.0",
-    "eslint": "^7.25.0",
     "json-server": "^0.16.3"
   }
 }

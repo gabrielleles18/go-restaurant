@@ -12,36 +12,19 @@ interface FoodProps {
         image: string;
         name: string;
         price: string
-    }
-}
-
-interface FuncProps{
+    },
     handleDelete: (id: number) => void;
-    handleEditFood: (food: FoodProps) => void
+    handleEditFood: (food: FoodProps['food']) => void
 }
 
+export function Food({food, handleDelete, handleEditFood}: FoodProps) {
+    const [isAvailable, setIsAvailable] = useState(food.available);
 
-export function Food({food}: FoodProps,  {handleDelete, handleEditFood}: FuncProps ) {
-    const [isAvailable, setIsAvailable] = useState(true);
-    // const [food, setFood] = useState([]);
-    console.log(food);
     useEffect(() => {
         setIsAvailable(food.available)
     }, [])
 
-    // constructor(props)
-    // {
-    //     super(props);
-    //
-    //     const {available} = this.props.food;
-    //     this.state = {
-    //         isAvailable: available
-    //     };
-    // }
-
     async function toggleAvailable() {
-        // const {food} = this.props;
-        // const {isAvailable} = this.state;
 
         await api.put(`/foods/${food.id}`, {
             ...food,
@@ -49,24 +32,11 @@ export function Food({food}: FoodProps,  {handleDelete, handleEditFood}: FuncPro
         });
 
         setIsAvailable(!isAvailable);
-        // this.setState({isAvailable: !isAvailable});
     }
-
-    function setEditingFood() {
-        // const {food, handleEditFood} = this.props;
-
-        // handleEditFood(food);
-    }
-
-    // render()
-    // {
-    // const {isAvailable} = this.state;
-    // const {food, handleDelete} = this.props;
 
     return (
         <Container>
-        {/*<Container available={isAvailable}>*/}
-            <header>
+            <header style={{opacity: isAvailable ? 1 : 0.3}}>
                 <img src={food.image} alt={food.name}/>
             </header>
             <section className="body">
@@ -81,7 +51,7 @@ export function Food({food}: FoodProps,  {handleDelete, handleEditFood}: FuncPro
                     <button
                         type="button"
                         className="icon"
-                        // onClick={() => handleEditFood(food)}
+                        onClick={() => handleEditFood(food)}
                         data-testid={`edit-food-${food.id}`}
                     >
                         <FiEdit3 size={20}/>
@@ -114,6 +84,5 @@ export function Food({food}: FoodProps,  {handleDelete, handleEditFood}: FuncPro
             </section>
         </Container>
     );
-    // }
 }
 

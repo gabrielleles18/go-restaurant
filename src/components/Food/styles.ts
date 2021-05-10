@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   background: #f0f0f5;
@@ -6,17 +6,11 @@ export const Container = styled.div`
 
   header {
     background: #ffb84d;
-    border-radius: 8px 8px 0px 0px;
+    border-radius: 8px 8px 0 0;
     height: 192px;
     overflow: hidden;
     transition: 0.3s opacity;
     text-align: center;
-
-    ${props =>
-    !props.available &&
-    css`
-        opacity: 0.3;
-      `};
 
     img {
       pointer-events: none;
